@@ -8,7 +8,7 @@
     <ItemGroup>
         <ProjectReference Include="..\AtomsProject.DiscriminatedUnion.Analyzer\AtomsProject.DiscriminatedUnion.Analyzer.csproj"
                           OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
-        <ProjectReference Include="..\AtomsProject.DiscriminatedUnion\AtomsProject.DiscriminatedUnion.csproj" />
+        <ProjectReference Include="..\AtomsProject.DiscriminatedUnion.Attribute\AtomsProject.DiscriminatedUnion.Attribute.csproj" />
     </ItemGroup>
 
 </Project>

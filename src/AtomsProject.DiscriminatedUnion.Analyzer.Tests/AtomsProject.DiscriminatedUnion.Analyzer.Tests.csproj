@@ -23,7 +23,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\AtomsProject.DiscriminatedUnion.Analyzer\AtomsProject.DiscriminatedUnion.Analyzer.csproj"/>
-        <ProjectReference Include="..\AtomsProject.DiscriminatedUnion\AtomsProject.DiscriminatedUnion.csproj" />
+        <ProjectReference Include="..\AtomsProject.DiscriminatedUnion.Attribute\AtomsProject.DiscriminatedUnion.Attribute.csproj" />
     </ItemGroup>
 
     <ItemGroup>

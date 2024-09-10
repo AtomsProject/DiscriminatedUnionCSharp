@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtomsProject.DiscriminatedU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtomsProject.DiscriminatedUnion.Analyzer.Tests", "AtomsProject.DiscriminatedUnion.Analyzer.Tests\AtomsProject.DiscriminatedUnion.Analyzer.Tests.csproj", "{A25573F2-2DC5-46B9-94A9-B5A91640324E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtomsProject.DiscriminatedUnion", "AtomsProject.DiscriminatedUnion\AtomsProject.DiscriminatedUnion.csproj", "{35A07814-B088-425C-8FF4-A0E15138FE49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtomsProject.DiscriminatedUnion.Attribute", "AtomsProject.DiscriminatedUnion.Attribute\AtomsProject.DiscriminatedUnion.Attribute.csproj", "{35A07814-B088-425C-8FF4-A0E15138FE49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
