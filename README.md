@@ -15,9 +15,9 @@ This implementation inspects both `SwitchStatementSyntax` and `SwitchExpressionS
  [Union(typeof(A), typeof(B), typeof(C))]
  public interface IExampleUnion { }
 
- public class A { }
- public class B { public bool Flagged { get; set; } }
- public class C { }
+ public class A : IExampleUnion { }
+ public class B : IExampleUnion { public bool Flagged { get; set; } }
+ public class C : IExampleUnion { }
 
  public class TestClass
  {
