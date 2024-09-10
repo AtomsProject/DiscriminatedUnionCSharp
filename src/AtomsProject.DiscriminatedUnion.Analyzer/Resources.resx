@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <root>
     <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
@@ -18,14 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-
     <data name="UNION001Title" xml:space="preserve">
-        <value>Incomplete union type handling</value><comment>The title of the UNION001 rule.</comment>
+        <value>Incomplete union type handling</value>
     </data>
     <data name="UNION001MessageFormat" xml:space="preserve">
-        <value>Switch statement does not handle all union types: {0}</value><comment>The format-able message for UNION001 displays.</comment>
-    </data>  
+        <value>Switch statement does not handle all union types: {0}</value>
+    </data>
     <data name="UNION001FixTitle" xml:space="preserve">
-        <value>Add missing union types</value><comment>The format-able message for UNION001 fix title.</comment>
+        <value>Add missing union types</value>
     </data>
 </root>

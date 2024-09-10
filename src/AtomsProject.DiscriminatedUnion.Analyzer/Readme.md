@@ -1,29 +1,48 @@
-# Roslyn Analyzers Sample
+# Discriminated Union for C#
 
-A set of three sample projects that includes Roslyn analyzers with code fix providers. Enjoy this template to learn from and modify analyzers for your own needs.
+A C# Roslyn Analyzer to ensure exhaustiveness with Union Types in `switch` Statements and Expressions.
 
-## Content
-### AtomsProject.DiscriminatedUnion.Analyzer
-A .NET Standard project with implementations of sample analyzers and code fix providers.
-**You must build this project to see the results (warnings) in the IDE.**
+This analyzer guarantees exhaustive pattern matching for C# `switch` statements and expressions when using union-like types defined with a custom `[Union]` attribute. It checks that all types specified in the union are properly handled in `switch` constructs, preventing missing cases that could lead to incomplete logic or runtime errors.
 
-- [SampleSemanticAnalyzer.cs](SampleSemanticAnalyzer.cs): An analyzer that reports invalid values used for the `speed` parameter of the `SetSpeed` function.
-- [SampleSyntaxAnalyzer.cs](SampleSyntaxAnalyzer.cs): An analyzer that reports the company name used in class definitions.
-- [SampleCodeFixProvider.cs](SampleCodeFixProvider.cs): A code fix that renames classes with company name in their definition. The fix is linked to [SampleSyntaxAnalyzer.cs](SampleSyntaxAnalyzer.cs).
+## Why this approach?
 
-### AtomsProject.DiscriminatedUnion.Analyzer.Sample
-A project that references the sample analyzers. Note the parameters of `ProjectReference` in [AtomsProject.DiscriminatedUnion.Analyzer.Sample.csproj](../AtomsProject.DiscriminatedUnion.Analyzer.Sample/AtomsProject.DiscriminatedUnion.Analyzer.Sample.csproj), they make sure that the project is referenced as a set of analyzers. 
+I chose this approach to closely align with Microsoft's union type proposal outlined in [Type Unions Proposal](https://github.com/dotnet/csharplang/blob/main/proposals/TypeUnions.md). This ensures that if/when native union types are added to C#, migrating to the built-in functionality will be seamless and require minimal code changes.
 
-### AtomsProject.DiscriminatedUnion.Analyzer.Tests
-Unit tests for the sample analyzers and code fix provider. The easiest way to develop language-related features is to start with unit tests.
+This implementation inspects both `SwitchStatementSyntax` and `SwitchExpressionSyntax`, ensuring that every arm or case of the `switch` properly handles a union type, promoting code reliability and exhaustive pattern matching.
 
-## How To?
-### How to debug?
-- Use the [launchSettings.json](Properties/launchSettings.json) profile.
-- Debug tests.
+## Example Usage
 
-### How can I determine which syntax nodes I should expect?
-Consider installing the Roslyn syntax tree viewer plugin [Rossynt](https://plugins.jetbrains.com/plugin/16902-rossynt/).
+```csharp
+[Union(typeof(A), typeof(B), typeof(C))]
+public interface IExampleUnion { }
 
-### Learn more about wiring analyzers
-The complete set of information is available at [roslyn github repo wiki](https://github.com/dotnet/roslyn/blob/main/docs/wiki/README.md).
+public class A : IExampleUnion { }
+public class B : IExampleUnion { public bool Flagged { get; set; } }
+public class C : IExampleUnion { }
+
+public class TestClass
+{
+    public void TestSwitchExpression(IExampleUnion exampleUnion)
+    {
+        var result = exampleUnion switch // Will flag that C is missing
+        {
+            A _ => "TypeA",
+            B { Flagged: true } => "TypeB Flagged",
+            _ => "Unknown"
+        };
+    }
+    
+    public void TestSwitchStatement(IExampleUnion exampleUnion)
+    {
+        switch (exampleUnion)
+        {
+            case A a:
+                break;
+            case B b:
+                break;
+            case C c:
+                break;
+        }
+    }
+}
+```
