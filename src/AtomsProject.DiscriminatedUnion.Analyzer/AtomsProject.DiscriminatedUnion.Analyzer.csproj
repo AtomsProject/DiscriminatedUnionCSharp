@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <IsRoslynComponent>true</IsRoslynComponent>
+
+        <RootNamespace>AtomsProject.DiscriminatedUnion.Analyzer</RootNamespace>
+        <AssemblyName>AtomsProject.DiscriminatedUnion.Analyzer</AssemblyName>
+
+        <Title>Roslyn Analyzer for Discriminated Union in CSharp</Title>
+        <Authors>Atoms Project</Authors>
+        <Description>A C# Roslyn Analyzer to ensure exhaustiveness with Union Types in Switch Statements and Expressions</Description>
+        <Copyright>2024 by Adam C Larsen</Copyright>
+        <PackageLicenseUrl>https://github.com/AtomsProject/DiscriminatedUnionCSharp/blob/main/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/AtomsProject/DiscriminatedUnionCSharp</RepositoryUrl>
+        <Product>Discriminated Union for CSharp</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+</Project>

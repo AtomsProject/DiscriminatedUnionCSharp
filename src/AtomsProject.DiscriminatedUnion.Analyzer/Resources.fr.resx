@@ -1,0 +1,23 @@
+﻿<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="UNION001Title" xml:space="preserve">
+        <value>Gestion incomplète des types d'union</value>
+    </data>
+    <data name="UNION001MessageFormat" xml:space="preserve">
+        <value>L'instruction switch ne gère pas tous les types d'union : {0}</value>
+    </data>
+    <data name="UNION001FixTitle" xml:space="preserve">
+        <value>Ajouter les types d'union manquants</value>
+    </data>
+</root>
