@@ -15,7 +15,7 @@ There are two ways to install the analyzer:
 1. **Add it directly to each project:**
 
    ```
-   dotnet add package AtomsProject.DiscriminatedUnion.Analyzer --version 0.1.0-rc1
+   dotnet add package AtomsProject.DiscriminatedUnion.Analyzer --version 0.1.2-rc1
    ```
 
 2. **Add it globally via a `Directory.Build.Props` file:**
@@ -28,7 +28,7 @@ There are two ways to install the analyzer:
    ```xml
    <Project>
      <ItemGroup>
-       <PackageReference Include="AtomsProject.DiscriminatedUnion.Analyzer" Version="0.1.0-rc1" />
+       <PackageReference Include="AtomsProject.DiscriminatedUnion.Analyzer" Version="0.1.2-rc1" />
      </ItemGroup>
    </Project>
    ```
@@ -43,7 +43,7 @@ There are two ways to define and use this attribute:
         
    Add the package to the project where the union types are defined:
    ```
-   dotnet add package AtomsProject.DiscriminatedUnion.Attribute --version 0.1.0-rc1
+   dotnet add package AtomsProject.DiscriminatedUnion.Attribute --version 0.1.2-rc1
    ```
 
 2. Define your own attribute:
